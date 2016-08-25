@@ -7,6 +7,31 @@ html
   text-size-adjust: 100%
 
 body
+  display: flex
+  justify-content: space-around
+  align-items: center
   @include font-smoothing(on)
   margin: 0
   font: $base-text-size / 1 $base-font-family
+
+table
+
+  td
+    height: 16px
+    width: 16px
+    border: 2px solid black
+    line-height: 16px
+    text-align: center
+    font-weight: bold
+
+    &.empty, &.numbered
+      background-color: #89D9D0
+
+    &.flagged
+      background-color: purple
+
+    &.bomb
+      background-color: red
+
+    &.unrevealed
+      background-color: gray
