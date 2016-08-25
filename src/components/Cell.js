@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 class Cell extends Component {
   get _cellType () {
     switch (this.props.type) {
@@ -10,12 +9,15 @@ class Cell extends Component {
       case '*': return 'bomb'
       case '@': return 'flag-bomb'
       default: return 'numbered'
-
     }
   }
   render () {
-    return(<td className={this._cellType}>{this.props.type}</td>)
+    return <td className={this._cellType}>{this.props.type}</td>
   }
+}
+
+Cell.propTypes = {
+  type: React.PropTypes.string.isRequired
 }
 
 export default Cell

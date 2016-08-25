@@ -2,22 +2,26 @@ import React, { Component } from 'react'
 import Cell from './Cell'
 import '../styles/screen.sass'
 
+const API_URL = 'http://minesweeper-api.herokuapp.com'
+
 class App extends Component {
   constructor () {
     super()
-    this.state={
-      board: [
-        [' ', '_' , 'F' , '*' , '@' , '3' , ' ' , ' '],
-        [' ', '_' , 'F' , '*' , '@' , '3' , ' ' , ' '],
-        [' ', '_' , 'F' , '*' , '@' , '3' , ' ' , ' '],
-        [' ', '_' , 'F' , '*' , '@' , '3' , ' ' , ' '],
-        [' ', '_' , 'F' , '*' , '@' , '3' , ' ' , ' '],
-        [' ', '_' , 'F' , '*' , '@' , '3' , ' ' , ' '],
-        [' ', '_' , 'F' , '*' , '@' , '3' , ' ' , ' '],
-        [' ', '_' , 'F' , '*' , '@' , '3' , ' ' , ' ']
-      ]
+    this.state = {
+      board: []
     }
   }
+
+  componentDidMount () {
+    window.fetch(`${API_URL}/games?difficulty=0`, {
+      method: 'POST'
+    }).then((response) => {
+      return response.json()
+    }).then((data) => {
+      this.setState(data)
+    })
+  }
+
   render () {
     const rows = this.state.board.map((row, i) => {
       const cells = row.map((cell, j) => {
