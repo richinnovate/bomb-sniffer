@@ -29,7 +29,11 @@ class Cell extends Component {
 }
 
 Cell.propTypes = {
-  type: React.PropTypes.string.isRequired
+  type: React.PropTypes.string.isRequired,
+  row: React.PropTypes.number.isRequired,
+  col: React.PropTypes.number.isRequired,
+  revealCell: React.PropTypes.function.isRequired,
+  flagCell: React.PropTypes.function.isRequired
 }
 
 export default Cell
