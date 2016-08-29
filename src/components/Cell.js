@@ -29,7 +29,10 @@ class Cell extends Component {
 }
 
 Cell.propTypes = {
-  type: React.PropTypes.string.isRequired,
+  type: React.PropTypes.oneOfType([
+    React.PropTypes.string.isRequired,
+    React.PropTypes.number.isRequired
+  ]),
   row: React.PropTypes.number.isRequired,
   col: React.PropTypes.number.isRequired,
   revealCell: React.PropTypes.func.isRequired,
