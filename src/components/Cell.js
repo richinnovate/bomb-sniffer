@@ -11,8 +11,20 @@ class Cell extends Component {
       default: return 'numbered'
     }
   }
+
+  handleClick = () => {
+    this.props.revealCell(this.props.row, this.props.col)
+  }
+
+  handleContextMenu = (event) => {
+    event.preventDefault()
+    this.props.flagCell(this.props.row, this.props.col)
+  }
+
   render () {
-    return <td className={this._cellType}>{this.props.type}</td>
+    return <td
+      onClick={this.handleClick}
+      onContextMenu={this.handleContextMenu} className={this._cellType}>{this.props.type}</td>
   }
 }
 
