@@ -32,8 +32,8 @@ Cell.propTypes = {
   type: React.PropTypes.string.isRequired,
   row: React.PropTypes.number.isRequired,
   col: React.PropTypes.number.isRequired,
-  revealCell: React.PropTypes.function.isRequired,
-  flagCell: React.PropTypes.function.isRequired
+  revealCell: React.PropTypes.func.isRequired,
+  flagCell: React.PropTypes.func.isRequired
 }
 
 export default Cell
